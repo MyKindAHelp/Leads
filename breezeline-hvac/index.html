@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BreezeLine Technicians | HVAC Tampa, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ice: #e8f4f8;
+  --sky: #1e8bc3;
+  --deep: #0a2540;
+  --cool: #52b8d9;
+  --white: #ffffff;
+  --accent: #ff6b35;
+}
+
+body {
+  font-family: 'Lora', Georgia, serif;
+  background: var(--ice);
+  color: var(--deep);
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  background: var(--deep);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animated air waves */
+.wave {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(82,184,217,0.1);
+  pointer-events: none;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.wave:nth-child(1) { width: 300px; height: 300px; top: 10%; right: 5%; animation-delay: 0s; }
+.wave:nth-child(2) { width: 500px; height: 500px; top: 0%; right: -5%; animation-delay: 1s; }
+.wave:nth-child(3) { width: 700px; height: 700px; top: -10%; right: -15%; animation-delay: 2s; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+nav {
+  padding: 30px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.nav-brand span { color: var(--cool); }
+
+.nav-tag {
+  background: var(--sky);
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.nav-tag:hover { background: var(--cool); }
+
+.hero-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 70px;
+  position: relative;
+  z-index: 10;
+}
+
+.temp-display {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 180px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tag-line {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--cool);
+  margin-bottom: 20px;
+  animation: slideIn 0.5s ease both;
+}
+
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(60px, 9vw, 110px);
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  animation: slideIn 0.5s 0.1s ease both;
+}
+
+.hero-title .highlight { color: var(--cool); }
+
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 500px;
+  margin-bottom: 50px;
+  font-weight: 400;
+  animation: slideIn 0.5s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  animation: slideIn 0.5s 0.3s ease both;
+  flex-wrap: wrap;
+}
+
+.btn-call {
+  background: var(--accent);
+  color: var(--white);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 18px 44px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+  display: inline-block;
+}
+
+.btn-call:hover { transform: translateY(-3px); background: #e55a25; }
+
+.emergency-note {
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.hero-bottom {
+  padding: 0 70px 50px;
+  display: flex;
+  gap: 50px;
+  position: relative;
+  z-index: 10;
+  animation: slideIn 0.5s 0.4s ease both;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.metric-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(82,184,217,0.15);
+  border: 1px solid rgba(82,184,217,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  border-radius: 8px;
+}
+
+.metric-val {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+}
+
+.metric-lbl {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SERVICES */
+.services {
+  padding: 100px 70px;
+}
+
+.eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 14px;
+}
+
+.sec-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  color: var(--deep);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 60px;
+}
+
+.services-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.svc {
+  background: var(--white);
+  padding: 44px 36px;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.25s, transform 0.25s;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+.svc:hover { border-color: var(--sky); transform: translateY(-4px); }
+
+.svc-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: rgba(30,139,195,0.12);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.svc-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--deep);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.svc-desc {
+  font-size: 15px;
+  color: #667;
+  line-height: 1.65;
+}
+
+/* PROMISE */
+.promise {
+  background: var(--sky);
+  padding: 100px 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.promise-text .sec-title { color: var(--white); margin-bottom: 24px; }
+
+.promise-body {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.promise-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--white);
+  font-size: 16px;
+}
+
+.p-check {
+  width: 28px;
+  height: 28px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.promise-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.p-stat {
+  background: rgba(255,255,255,0.12);
+  padding: 36px 30px;
+  text-align: center;
+}
+
+.p-stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 54px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+  display: block;
+}
+
+.p-stat-lbl {
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* CTA */
+.cta-band {
+  background: var(--deep);
+  padding: 80px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.cta-words {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 800;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.cta-words span { color: var(--cool); display: block; }
+
+footer {
+  background: #060f1c;
+  padding: 50px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.foot-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.foot-brand span { color: var(--cool); }
+
+.foot-info {
+  color: rgba(255,255,255,0.35);
+  font-size: 14px;
+  text-align: right;
+  line-height: 1.8;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  nav, .hero-main, .hero-bottom, .services, .cta-band, footer { padding-left: 28px; padding-right: 28px; }
+  .promise { grid-template-columns: 1fr; padding: 60px 28px; }
+  .hero-title { font-size: 60px; }
+  .temp-display { display: none; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wave"></div>
+  <div class="wave"></div>
+  <div class="wave"></div>
+
+  <nav>
+    <div class="nav-brand">Breeze<span>Line</span> Technicians</div>
+    <a href="#contact" class="nav-tag">Free Estimate</a>
+  </nav>
+
+  <div class="hero-main">
+    <div class="temp-display">72°</div>
+    <p class="tag-line">Tampa Bay HVAC Specialists</p>
+    <h1 class="hero-title">Keep Your <span class="highlight">Cool</span><br>All Year Long</h1>
+    <p class="hero-sub">Expert heating and cooling service for Tampa homes and businesses. Fast response. Honest pricing. Work that lasts.</p>
+    <div class="hero-actions">
+      <a href="tel:28019267400" class="btn-call">Schedule Service</a>
+      <span class="emergency-note">Emergency service available 24/7</span>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="metric">
+      <div class="metric-icon">❄️</div>
+      <div>
+        <span class="metric-val">Same Day</span>
+        <span class="metric-lbl">Service Available</span>
+      </div>
+    </div>
+    <div class="metric">
+      <div class="metric-icon">🏆</div>
+      <div>
+        <span class="metric-val">All Brands</span>
+        <span class="metric-lbl">Serviced & Repaired</span>
+      </div>
+    </div>
+    <div class="metric">
+      <div class="metric-icon">✅</div>
+      <div>
+        <span class="metric-val">Licensed</span>
+        <span class="metric-lbl">& Fully Insured</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <p class="eyebrow">Our Services</p>
+  <h2 class="sec-title">Everything HVAC,<br>Done Right</h2>
+  <div class="services-row">
+    <div class="svc">
+      <div class="svc-num">01</div>
+      <div class="svc-name">AC Repair</div>
+      <p class="svc-desc">Fast diagnosis and repair for all makes and models. We get your system running before the Tampa heat wins.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">02</div>
+      <div class="svc-name">AC Installation</div>
+      <p class="svc-desc">New system installation done right the first time. We size your system correctly so you get maximum efficiency.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">03</div>
+      <div class="svc-name">Preventive Maintenance</div>
+      <p class="svc-desc">Regular tune-ups extend system life and cut energy bills. Most Tampa AC problems are 100% preventable.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">04</div>
+      <div class="svc-name">Indoor Air Quality</div>
+      <p class="svc-desc">Filters, UV systems, and humidity control for cleaner, healthier air inside your home or business.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">05</div>
+      <div class="svc-name">Commercial HVAC</div>
+      <p class="svc-desc">Keeping Tampa businesses comfortable year-round. Minimal downtime, maximum reliability.</p>
+    </div>
+    <div class="svc">
+      <div class="svc-num">06</div>
+      <div class="svc-name">Emergency Service</div>
+      <p class="svc-desc">AC out in Florida summer? We treat that like the emergency it is. Available around the clock.</p>
+    </div>
+  </div>
+</section>
+
+<section class="promise" id="contact">
+  <div class="promise-text">
+    <p class="eyebrow" style="color:rgba(255,255,255,0.6)">Why Choose Us</p>
+    <h2 class="sec-title">We Do What We Say We'll Do</h2>
+    <p class="promise-body">BreezeLine Technicians was built on a simple idea: show up, fix it right, charge a fair price. No upsells. No surprises.</p>
+    <div class="promise-items">
+      <div class="p-item"><div class="p-check">✓</div> Transparent pricing before any work begins</div>
+      <div class="p-item"><div class="p-check">✓</div> Technicians who explain what they're doing</div>
+      <div class="p-item"><div class="p-check">✓</div> Workmanship warranty on all repairs</div>
+      <div class="p-item"><div class="p-check">✓</div> Serving all of Tampa Bay since 2010</div>
+    </div>
+  </div>
+  <div class="promise-stats">
+    <div class="p-stat">
+      <span class="p-stat-num">15+</span>
+      <div class="p-stat-lbl">Years in Tampa</div>
+    </div>
+    <div class="p-stat">
+      <span class="p-stat-num">24/7</span>
+      <div class="p-stat-lbl">Emergency Line</div>
+    </div>
+    <div class="p-stat">
+      <span class="p-stat-num">All</span>
+      <div class="p-stat-lbl">Brands Serviced</div>
+    </div>
+    <div class="p-stat">
+      <span class="p-stat-num">100%</span>
+      <div class="p-stat-lbl">Satisfaction Guarantee</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-words">Ready for Reliable<span>HVAC Service?</span></div>
+  <a href="#contact" class="btn-call">Get a Free Estimate</a>
+</div>
+
+<footer>
+  <div class="foot-brand">Breeze<span>Line</span> Technicians</div>
+  <div class="foot-info">
+    2901 N Dale Mabry Hwy, Tampa, FL<br>
+    Serving All of Tampa Bay · Licensed & Insured
+  </div>
+</footer>
+
+</body>
+</html>

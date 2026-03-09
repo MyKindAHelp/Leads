@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fair-Fix | Home Repair Tampa, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --orange: #f5820d;
+  --charcoal: #1c1c1c;
+  --warm: #faf6f0;
+  --brown: #3d2b1f;
+  --mid: #e8e0d4;
+  --white: #ffffff;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--warm);
+  color: var(--charcoal);
+  overflow-x: hidden;
+}
+
+/* TOP BAR */
+.topbar {
+  background: var(--orange);
+  padding: 10px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-left {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.topbar-right {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  background: var(--charcoal);
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 60px;
+}
+
+/* Diagonal stripe texture */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgba(245,130,13,0.04) 0px,
+    rgba(245,130,13,0.04) 2px,
+    transparent 2px,
+    transparent 20px
+  );
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 10;
+  max-width: 750px;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  animation: popIn 0.5s ease both;
+}
+
+.eyebrow-line {
+  width: 40px;
+  height: 2px;
+  background: var(--orange);
+}
+
+.eyebrow-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.hero-h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 10vw, 130px);
+  color: var(--white);
+  line-height: 0.92;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  animation: popIn 0.5s 0.1s ease both;
+}
+
+.hero-h1 .orange { color: var(--orange); }
+
+.hero-sub {
+  font-size: 19px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  max-width: 540px;
+  margin-bottom: 50px;
+  font-weight: 300;
+  animation: popIn 0.5s 0.2s ease both;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: popIn 0.5s 0.3s ease both;
+}
+
+.btn-o {
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 40px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 4px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-o:hover { transform: translateY(-3px); background: #e07209; }
+
+.btn-ghost {
+  color: rgba(255,255,255,0.7);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 30px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.btn-ghost:hover { color: var(--white); }
+
+/* TRUST BAR */
+.trust-bar {
+  background: var(--orange);
+  padding: 28px 60px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+}
+
+.trust-icon { font-size: 22px; }
+
+.trust-text {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SERVICES */
+.services {
+  padding: 100px 60px;
+  background: var(--warm);
+}
+
+.section-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 14px;
+}
+
+.section-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(44px, 6vw, 76px);
+  color: var(--brown);
+  line-height: 1;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.svc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.svc-item {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 36px 32px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.svc-item:hover {
+  border-color: var(--orange);
+  transform: translateX(4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.svc-emoji { font-size: 32px; line-height: 1; flex-shrink: 0; }
+
+.svc-info {}
+
+.svc-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.svc-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* PRICING PROMISE */
+.pricing {
+  background: var(--brown);
+  padding: 100px 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.pricing .section-h { color: var(--white); }
+.pricing .section-tag { color: rgba(245,130,13,0.8); }
+
+.pricing-body {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+
+.pricing-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.p-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.p-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 40px;
+  color: var(--orange);
+  width: 44px;
+  flex-shrink: 0;
+}
+
+.p-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.p-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  font-weight: 300;
+}
+
+/* CTA */
+.cta {
+  background: var(--orange);
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.cta-h {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(44px, 6vw, 80px);
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.cta-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.btn-cta {
+  background: var(--white);
+  color: var(--orange);
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 18px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btn-cta:hover { transform: translateY(-3px); }
+
+footer {
+  background: var(--charcoal);
+  padding: 50px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ft-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--white);
+  letter-spacing: 3px;
+}
+
+.ft-brand span { color: var(--orange); }
+
+.ft-info {
+  color: rgba(255,255,255,0.35);
+  font-size: 14px;
+  text-align: right;
+  line-height: 1.8;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.97) translateY(16px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .topbar, .hero, .trust-bar, .services, .cta, footer { padding-left: 24px; padding-right: 24px; }
+  .pricing { grid-template-columns: 1fr; padding: 60px 24px; }
+  .hero-h1 { font-size: 72px; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">📍 Serving All of Tampa Bay</span>
+  <a href="tel:8132371155" class="topbar-right">📞 (813) 237-1155</a>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <div class="eyebrow-text">Tampa Home & Business Repair</div>
+    </div>
+    <h1 class="hero-h1"><span class="orange">Fair</span><br>Prices.<br>Real Fixes.</h1>
+    <p class="hero-sub">Fair-Fix brings honest, affordable repair services to Tampa homes and businesses. No overcharging. No runaround. Just quality work at a price that makes sense.</p>
+    <div class="hero-actions">
+      <a href="tel:8132371155" class="btn-o">Call (813) 237-1155</a>
+      <a href="#services" class="btn-ghost">See Services →</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text">Fast Response</span></div>
+  <div class="trust-item"><span class="trust-icon">💰</span><span class="trust-text">Upfront Pricing</span></div>
+  <div class="trust-item"><span class="trust-icon">✅</span><span class="trust-text">Licensed & Insured</span></div>
+  <div class="trust-item"><span class="trust-icon">🛡</span><span class="trust-text">Satisfaction Guaranteed</span></div>
+</div>
+
+<section class="services" id="services">
+  <p class="section-tag">What We Fix</p>
+  <h2 class="section-h">One Call. Many Solutions.</h2>
+  <div class="svc-list">
+    <div class="svc-item">
+      <span class="svc-emoji">🔧</span>
+      <div class="svc-info">
+        <div class="svc-title">General Repairs</div>
+        <p class="svc-desc">Leaks, broken fixtures, worn hardware — we handle the repairs that pile up and never seem to get done.</p>
+      </div>
+    </div>
+    <div class="svc-item">
+      <span class="svc-emoji">🚪</span>
+      <div class="svc-info">
+        <div class="svc-title">Door & Window Repair</div>
+        <p class="svc-desc">Sticking doors, broken locks, damaged frames, foggy windows — repaired and working like new.</p>
+      </div>
+    </div>
+    <div class="svc-item">
+      <span class="svc-emoji">🎨</span>
+      <div class="svc-info">
+        <div class="svc-title">Interior Patching & Paint</div>
+        <p class="svc-desc">Drywall holes, cracks, and scuffs — patched, textured, and painted to match perfectly.</p>
+      </div>
+    </div>
+    <div class="svc-item">
+      <span class="svc-emoji">💡</span>
+      <div class="svc-info">
+        <div class="svc-title">Electrical Fixes</div>
+        <p class="svc-desc">Outlet replacements, fixture installs, switches — safe, code-compliant electrical work.</p>
+      </div>
+    </div>
+    <div class="svc-item">
+      <span class="svc-emoji">🚰</span>
+      <div class="svc-info">
+        <div class="svc-title">Plumbing Repairs</div>
+        <p class="svc-desc">Dripping faucets, running toilets, slow drains — fixed fast before they turn into big problems.</p>
+      </div>
+    </div>
+    <div class="svc-item">
+      <span class="svc-emoji">🏠</span>
+      <div class="svc-info">
+        <div class="svc-title">Exterior Maintenance</div>
+        <p class="svc-desc">Pressure washing, caulking, small repairs to siding, gutters, and decks — keeping the outside looking sharp.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div>
+    <p class="section-tag">Our Process</p>
+    <h2 class="section-h">How It Works</h2>
+    <p class="pricing-body">We built Fair-Fix around one idea: customers deserve to know what they're paying before anyone picks up a tool. Here's how every job works.</p>
+  </div>
+  <div class="pricing-cards">
+    <div class="p-card">
+      <div class="p-num">1</div>
+      <div>
+        <div class="p-title">You Call. We Listen.</div>
+        <div class="p-sub">Describe the problem. We ask the right questions to understand the scope.</div>
+      </div>
+    </div>
+    <div class="p-card">
+      <div class="p-num">2</div>
+      <div>
+        <div class="p-title">We Give You a Price.</div>
+        <div class="p-sub">Flat-rate quote before we start. No surprise charges. Ever.</div>
+      </div>
+    </div>
+    <div class="p-card">
+      <div class="p-num">3</div>
+      <div>
+        <div class="p-title">We Fix It Right.</div>
+        <div class="p-sub">Clean, professional work. We treat your home or business like our own.</div>
+      </div>
+    </div>
+    <div class="p-card">
+      <div class="p-num">4</div>
+      <div>
+        <div class="p-title">You're Satisfied. Guaranteed.</div>
+        <div class="p-sub">If you're not happy, we make it right. No questions asked.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2 class="cta-h">Need Something Fixed?</h2>
+  <p class="cta-sub">Call now for a free estimate — most jobs scheduled within 48 hours.</p>
+  <a href="tel:8132371155" class="btn-cta">Call (813) 237-1155</a>
+</div>
+
+<footer>
+  <div class="ft-brand">Fair<span>-Fix</span></div>
+  <div class="ft-info">
+    7409 N Nebraska Ave, Tampa, FL · (813) 237-1155<br>
+    Serving All of Tampa Bay · Licensed & Insured
+  </div>
+</footer>
+
+</body>
+</html>

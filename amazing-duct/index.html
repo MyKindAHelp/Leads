@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazing Duct Cleaners | Tampa, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --fresh: #00b894;
+  --dark: #1d2a1e;
+  --off: #f0f7f1;
+  --mid: #2d4a30;
+  --text: #2a3a2b;
+  --light: #ffffff;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.hero {
+  background: var(--dark);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Particle dots */
+.dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,184,148,0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0,184,148,0.2) 0%, transparent 60%);
+  bottom: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+nav {
+  padding: 32px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  background: var(--fresh);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.brand-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: 0.5px;
+}
+
+.nav-cta {
+  background: var(--fresh);
+  color: var(--dark);
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.nav-cta:hover { opacity: 0.9; transform: translateY(-2px); }
+
+.hero-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 64px 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,184,148,0.15);
+  border: 1px solid rgba(0,184,148,0.4);
+  color: var(--fresh);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+  width: fit-content;
+  animation: rise 0.5s ease both;
+}
+
+.hero-h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(52px, 7.5vw, 100px);
+  font-weight: 800;
+  color: var(--light);
+  line-height: 0.95;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
+  animation: rise 0.5s 0.1s ease both;
+}
+
+.hero-h1 .green { color: var(--fresh); }
+
+.hero-p {
+  font-size: 19px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 44px;
+  font-weight: 300;
+  animation: rise 0.5s 0.2s ease both;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  animation: rise 0.5s 0.3s ease both;
+}
+
+.btn-g {
+  background: var(--fresh);
+  color: var(--dark);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s, opacity 0.2s;
+  display: inline-block;
+}
+
+.btn-g:hover { transform: translateY(-3px); opacity: 0.92; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--light);
+  font-family: 'Syne', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  text-decoration: none;
+  transition: border-color 0.2s;
+  display: inline-block;
+}
+
+.btn-outline:hover { border-color: rgba(255,255,255,0.6); }
+
+/* WHAT WE DO */
+.what {
+  padding: 100px 64px;
+  background: var(--off);
+}
+
+.label {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--fresh);
+  margin-bottom: 14px;
+}
+
+.big-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.05;
+  margin-bottom: 60px;
+  max-width: 640px;
+}
+
+.what-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.what-card {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 40px 34px;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.what-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(0,184,148,0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 15px;
+  color: #5a6b5b;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* HEALTH */
+.health {
+  background: var(--mid);
+  padding: 100px 64px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.health .big-title { color: var(--light); margin-bottom: 28px; }
+
+.health-body {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.health-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.health-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255,255,255,0.85);
+  font-size: 16px;
+}
+
+.health-list li::before {
+  content: '→';
+  color: var(--fresh);
+  font-weight: 700;
+}
+
+.health-box {
+  background: rgba(0,184,148,0.1);
+  border: 1px solid rgba(0,184,148,0.25);
+  border-radius: 20px;
+  padding: 50px 44px;
+}
+
+.health-stat {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(0,184,148,0.2);
+}
+
+.health-stat:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+.h-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 52px;
+  font-weight: 800;
+  color: var(--fresh);
+  line-height: 1;
+  display: block;
+}
+
+.h-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+/* CTA */
+.cta-sec {
+  background: var(--fresh);
+  padding: 80px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.cta-msg {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.cta-msg span { display: block; opacity: 0.65; font-size: 0.65em; font-weight: 400; }
+
+.btn-dark {
+  background: var(--dark);
+  color: var(--light);
+  font-family: 'Syne', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 18px 44px;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btn-dark:hover { transform: translateY(-3px); }
+
+footer {
+  background: var(--dark);
+  padding: 50px 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ft-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ft-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--light);
+}
+
+.ft-info {
+  color: rgba(255,255,255,0.35);
+  font-size: 14px;
+  text-align: right;
+  line-height: 1.8;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  nav, .hero-body, .what, .cta-sec, footer { padding-left: 28px; padding-right: 28px; }
+  .health { grid-template-columns: 1fr; padding: 60px 28px; }
+  .hero-h1 { font-size: 56px; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="dots"></div>
+  <div class="glow"></div>
+  <nav>
+    <div class="brand">
+      <div class="brand-icon">💨</div>
+      <div class="brand-name">Amazing Duct Cleaners</div>
+    </div>
+    <a href="tel:8132521840" class="nav-cta">Call (813) 252-1840</a>
+  </nav>
+  <div class="hero-body">
+    <div class="pill">⭐⭐⭐⭐⭐ 5-Star Rated in Tampa</div>
+    <h1 class="hero-h1">Breathe <span class="green">Cleaner</span><br>Air Today</h1>
+    <p class="hero-p">Professional duct cleaning for Tampa homes and businesses. Remove allergens, dust, and contaminants from your HVAC system — and feel the difference immediately.</p>
+    <div class="hero-btns">
+      <a href="tel:8132521840" class="btn-g">Call (813) 252-1840</a>
+      <a href="#services" class="btn-outline">See What We Do</a>
+    </div>
+  </div>
+</section>
+
+<section class="what" id="services">
+  <p class="label">Our Services</p>
+  <h2 class="big-title">Clean Ducts. Healthier Home. Lower Bills.</h2>
+  <div class="what-grid">
+    <div class="what-card">
+      <div class="card-icon">🌬️</div>
+      <div class="card-title">Air Duct Cleaning</div>
+      <p class="card-text">Deep cleaning of your entire duct system — removes years of dust, debris, mold spores, and allergens that circulate through your home.</p>
+    </div>
+    <div class="what-card">
+      <div class="card-icon">❄️</div>
+      <div class="card-title">Dryer Vent Cleaning</div>
+      <p class="card-text">Clogged dryer vents are a fire hazard. We clear them completely and restore efficient, safe operation.</p>
+    </div>
+    <div class="what-card">
+      <div class="card-icon">🦠</div>
+      <div class="card-title">Sanitization & Deodorizing</div>
+      <p class="card-text">Eliminate bacteria, mold, and odors from your duct system. Safe for children, pets, and allergy sufferers.</p>
+    </div>
+    <div class="what-card">
+      <div class="card-icon">🏢</div>
+      <div class="card-title">Commercial Duct Cleaning</div>
+      <p class="card-text">Large-scale duct cleaning for offices, restaurants, and commercial buildings. NADCA standards followed.</p>
+    </div>
+  </div>
+</section>
+
+<section class="health">
+  <div>
+    <p class="label" style="color:rgba(0,184,148,0.8)">Why It Matters</p>
+    <h2 class="big-title">Your Air Quality Is Affecting Your Health</h2>
+    <p class="health-body">The EPA estimates indoor air can be 2–5x more polluted than outdoor air. Most of that contamination lives in your duct system — and gets recirculated every time your AC runs.</p>
+    <ul class="health-list">
+      <li>Reduces allergy and asthma symptoms</li>
+      <li>Lowers energy bills by up to 30%</li>
+      <li>Extends the life of your HVAC system</li>
+      <li>Eliminates musty odors for good</li>
+      <li>Recommended every 3–5 years for most homes</li>
+    </ul>
+  </div>
+  <div class="health-box">
+    <div class="health-stat">
+      <span class="h-num">5★</span>
+      <div class="h-desc">Rated 5 stars by Tampa homeowners. Real results, real reviews.</div>
+    </div>
+    <div class="health-stat">
+      <span class="h-num">100%</span>
+      <div class="h-desc">Satisfaction guaranteed on every job — residential and commercial.</div>
+    </div>
+    <div class="health-stat">
+      <span class="h-num">24hr</span>
+      <div class="h-desc">Most jobs completed same day or next day. Fast scheduling available.</div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-sec">
+  <div class="cta-msg">
+    Ready for Fresher Air?
+    <span>Same-day scheduling available in Tampa</span>
+  </div>
+  <a href="tel:8132521840" class="btn-dark">Call (813) 252-1840</a>
+</div>
+
+<footer>
+  <div class="ft-brand">
+    <div class="brand-icon" style="background:rgba(0,184,148,0.2)">💨</div>
+    <div class="ft-name">Amazing Duct Cleaners</div>
+  </div>
+  <div class="ft-info">
+    6212 S Church Ave, Tampa, FL · (813) 252-1840<br>
+    Serving All of Tampa Bay · Licensed & Insured
+  </div>
+</footer>
+
+</body>
+</html>

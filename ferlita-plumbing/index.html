@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ferlita & Son Plumbing | Tampa, FL</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #1a2744;
+  --rust: #c8441a;
+  --cream: #f5f0e8;
+  --gold: #d4a843;
+  --light: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--cream);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+/* HERO */
+.hero {
+  background: var(--navy);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(200,68,26,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rust), var(--gold), var(--rust));
+}
+
+nav {
+  padding: 28px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  color: var(--light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-brand span {
+  color: var(--rust);
+}
+
+.nav-phone {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-phone:hover { color: var(--light); }
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(200,68,26,0.2);
+  border: 1px solid var(--rust);
+  color: var(--rust);
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  border-radius: 2px;
+  margin-bottom: 30px;
+  width: fit-content;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 700;
+  color: var(--light);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.hero-title em {
+  font-style: normal;
+  color: var(--rust);
+  display: block;
+}
+
+.hero-sub {
+  font-size: 20px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: 50px;
+  font-weight: 300;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.btn-primary {
+  background: var(--rust);
+  color: var(--light);
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: #a83515; transform: translateY(-2px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--light);
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border: 1px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.btn-secondary:hover { border-color: var(--light); transform: translateY(-2px); }
+
+.hero-stats {
+  padding: 40px 60px;
+  display: flex;
+  gap: 60px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  z-index: 10;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.stat-item { text-align: left; }
+
+.stat-num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* SERVICES */
+.services {
+  padding: 100px 60px;
+  background: var(--cream);
+}
+
+.section-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.1;
+  margin-bottom: 60px;
+  max-width: 600px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2px;
+}
+
+.service-card {
+  background: var(--navy);
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--rust);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+
+.service-card:hover { transform: translateY(-4px); }
+.service-card:hover::before { transform: scaleX(1); }
+
+.service-icon {
+  font-size: 36px;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.service-name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.service-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+/* ABOUT */
+.about {
+  padding: 100px 60px;
+  background: var(--light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text .section-title { margin-bottom: 30px; }
+
+.about-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #444;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+.about-highlight {
+  border-left: 3px solid var(--rust);
+  padding-left: 24px;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.about-visual {
+  background: var(--navy);
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.trust-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.trust-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--rust);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.trust-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: var(--light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.trust-desc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* CTA STRIP */
+.cta-strip {
+  background: var(--rust);
+  padding: 80px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.cta-strip-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--light);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.cta-strip-text span { color: var(--gold); display: block; }
+
+.btn-white {
+  background: var(--light);
+  color: var(--rust);
+  font-family: 'Oswald', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 20px 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btn-white:hover { transform: translateY(-3px); }
+
+/* FOOTER */
+footer {
+  background: #0d1420;
+  padding: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24px;
+  color: var(--light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.footer-brand span { color: var(--rust); }
+
+.footer-info {
+  text-align: right;
+  color: rgba(255,255,255,0.4);
+  font-size: 14px;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.footer-info a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  nav, .hero-content, .hero-stats, .services, .cta-strip, footer {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .about { grid-template-columns: 1fr; padding: 60px 28px; }
+  .hero-stats { gap: 30px; flex-wrap: wrap; }
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <nav>
+    <div class="nav-brand">Ferlita <span>&</span> Son Plumbing</div>
+    <a href="tel:8138887643" class="nav-phone">(813) 888-7643</a>
+  </nav>
+  <div class="hero-content">
+    <div class="badge">⚡ Available 24/7 for Emergencies</div>
+    <h1 class="hero-title">Tampa's <em>Trusted</em> Plumbers</h1>
+    <p class="hero-sub">Family-owned and operated serving Tampa Bay. From leaky faucets to full remodels — we fix it right the first time.</p>
+    <div class="hero-cta">
+      <a href="tel:8138887643" class="btn-primary">Call Now: (813) 888-7643</a>
+      <a href="#services" class="btn-secondary">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">20+</span>
+      <span class="stat-label">Years Serving Tampa</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">24/7</span>
+      <span class="stat-label">Emergency Service</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">100%</span>
+      <span class="stat-label">Licensed & Insured</span>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <p class="section-eyebrow">What We Do</p>
+  <h2 class="section-title">Full-Service Plumbing for Every Job</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🚰</span>
+      <div class="service-name">Leak Detection & Repair</div>
+      <p class="service-desc">Fast, accurate leak detection before small problems become big damage. We find it and fix it.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔧</span>
+      <div class="service-name">Drain Cleaning</div>
+      <p class="service-desc">Clogged drains cleared fast. Residential and commercial service available same day.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏠</span>
+      <div class="service-name">Water Heater Service</div>
+      <p class="service-desc">Installation, repair, and replacement of tank and tankless water heaters. All brands.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔨</span>
+      <div class="service-name">Remodel Plumbing</div>
+      <p class="service-desc">Kitchen and bath remodels done right. Rough-in, finish work, and everything between.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🚨</span>
+      <div class="service-name">Emergency Plumbing</div>
+      <p class="service-desc">Burst pipe? Flooding? We answer the phone 24 hours a day, 7 days a week.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏢</span>
+      <div class="service-name">Commercial Service</div>
+      <p class="service-desc">Serving businesses across Tampa Bay. Minimal downtime, maximum results.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-text">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">Family Business. Real Results.</h2>
+    <p class="about-body">Ferlita & Son Plumbing has been a trusted name in the Tampa Bay area for over two decades. We're not a franchise — we're your neighbors, and we treat every home like our own.</p>
+    <div class="about-highlight">"We don't send a stranger to your home. You get us — the same people you called."</div>
+  </div>
+  <div class="about-visual">
+    <div class="trust-item">
+      <div class="trust-icon">✓</div>
+      <div>
+        <div class="trust-title">Licensed Master Plumber</div>
+        <div class="trust-desc">State certified and fully insured for all residential and commercial work.</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⏱</div>
+      <div>
+        <div class="trust-title">On-Time Guarantee</div>
+        <div class="trust-desc">We show up when we say we will. Your time is valuable.</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">💰</div>
+      <div>
+        <div class="trust-title">Upfront Pricing</div>
+        <div class="trust-desc">No surprise charges. You approve the price before we touch a thing.</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🛡</div>
+      <div>
+        <div class="trust-title">Satisfaction Guaranteed</div>
+        <div class="trust-desc">We stand behind every job. If it's not right, we make it right.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="cta-strip-text">Need a Plumber Today?<span>We're Ready to Help.</span></div>
+  <a href="tel:8138887643" class="btn-white">Call (813) 888-7643</a>
+</div>
+
+<footer>
+  <div class="footer-brand">Ferlita <span>&</span> Son Plumbing</div>
+  <div class="footer-info">
+    2308 W St Joseph St, Tampa, FL<br>
+    <a href="tel:8138887643">(813) 888-7643</a> · Serving All of Tampa Bay<br>
+    Licensed · Insured · Family Owned Since 2004
+  </div>
+</footer>
+
+</body>
+</html>
